@@ -1,0 +1,83 @@
+<div class="create-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Create User</li>
+    </ol>
+  </nav>
+  <div class="page-content">
+    <div class="row">
+      <div class="col col-md-4">
+        <img class="img-avatar" src="{{ avatarLink }}" />
+        <div class="custom-file">
+          <input #imageInput type="file" accept="image/*" (change)="onSelectFile($event)" class="custom-file-input" id="fileChoose">
+        </div>
+      </div>
+
+      <div class="col col-md-8">
+        
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+              </div>
+              <input class="form-control" placeholder="Nombre" type="text" autocomplete="name" #UserName required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+              </div>
+              <input class="form-control" placeholder="Direccion" type="text" autocomplete="direccion" #Direccion required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-group">
+                <!-- <label for="idType">Tipo de identificación</label> -->
+                <select class="custom-select" id="idType" #idType>
+                  <option value="RC" selected>Registro civil</option>
+                  <option value="TI">Tarjeta de identidad</option>
+                  <option value="CC">Cedula de ciudadanía</option>
+                  <option value="CE">Cedula de extranjería</option>
+                  <option value="PA">Pasaporte</option>
+                </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+              </div>
+              <input class="form-control" placeholder="Numero de identificacion" type="text" autocomplete="name" #UserId required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+              </div>
+              <input class="form-control" placeholder="Correo electronico" type="text" autocomplete="name" #UserEmail required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+              </div>
+              <input class="form-control" placeholder="Correo electronico" type="password" autocomplete="password" #UserPassword required>
+            </div>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <button (click)="getSelected(UserName.value, Direccion.value, idType.value, UserId.value, UserEmail.value, UserPassword.value)"> Crear usuario</button>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

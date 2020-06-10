@@ -1,0 +1,108 @@
+<div class="header py-7 py-lg-3">
+  <div class="container">
+    <div class="header-body text-center mb-2">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6">
+          <h1 class="text-info">¡Gracias por unirse!</h1>
+          <p>Le invitamos a evaluar a sus trabajadores.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+    <!-- Table -->
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+          <div class="card-body bg-secondary px-lg-5 py-lg-5">
+            <div class="text-center text-light mb-4">
+              <p>Registrate con tus credenciales</p>
+            </div>
+            <form role="form">
+              <div class="form-inline mb-3 justify-content-center">
+                <div class="form-group mr-3">
+                    <!-- <label for="idType">Tipo de identificación</label> -->
+                    <select class="custom-select" id="idType" #idType>
+                      <option value="RC" selected>Registro civil</option>
+                      <option value="TI">Tarjeta de identidad</option>
+                      <option value="CC">Cedula de ciudadanía</option>
+                      <option value="CE">Cedula de extranjería</option>
+                      <option value="PA">Pasaporte</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Número de identificación" type="number" #id required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user-o"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Nombre representante legal" type="text" autocomplete="name" #userName required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-users"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Nombre de la empresa" type="text" autocomplete="name" #companyName required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-at"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Correo" type="email" autocomplete="email" #userEmail required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Telefono" type="phone" autocomplete="phone" #userPhone required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Contraseña" type="password" autocomplete="new-password" #userPwd required>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-picture-o"></i></span>
+                </div>
+                <div class="custom-file">
+                  <input #imageInput type="file" accept="image/*" (change)="onSelectFile($event)" class="custom-file-input" id="fileChoose">
+                  <label *ngIf="file===undefined" class="custom-file-label" for="fileChoose">Seleccionar imagen</label>
+                  <label *ngIf="file!==undefined" class="custom-file-label" for="fileChoose">{{file.name}}</label>
+                </div>
+              </div>
+              <div class="row my-4">
+                <div class="col-12">
+                  <div class="custom-control custom-control-alternative custom-checkbox">
+                    <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                    <label class="custom-control-label" for="customCheckRegister">
+                      <span class="text-light">Acepto los <a>términos y condiciones</a></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-primary mt-4" (click)="createUser(userName.value, userEmail.value, userPwd.value, idType.value, id.value, companyName.value, userPhone.value)">Registrarse</button>
+              </div>
+              <div class="col text-center">
+                <button type="button" routerLink="../login" class="btn text-light px-0">¿Ya te encuentras registrado? Ingresa</button>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+</div>
+  

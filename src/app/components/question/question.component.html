@@ -1,0 +1,17 @@
+<div class="card shadow" style="margin: 15px">
+    <div class="card-body row">
+    	<div class="col-12 col-lg-5 row align-items-center">
+    		<p class="mb-0 text-center font-weight-bold">{{question.enunciado}}</p>
+    	</div>
+    	<div class="col-12 col-lg-7">
+            <div class="row justify-content-around">
+                <div *ngFor="let option of question.opciones; index as i" class="col-2 text-wrap">
+                    <p class="row justify-content-center text-center mb-0">{{option}}</p>
+                    <div class="col-2">
+                        <i class="fas fa-check col row justify-content-center fa-2x ml-1 ml-sm-0" (click)="select(i)" [class.selected]="selectedOption == i"></i>
+                    </div>
+                </div>
+            </div>
+    	</div> 
+  </div>
+</div>

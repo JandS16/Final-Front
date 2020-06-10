@@ -1,0 +1,35 @@
+<div class="page-container">
+	<nav class="side-bar">
+		<ul name="lista" class="nav flex-column">
+			<li class="nav-item">
+				<a class="nav-link" routerLinkActive="active" (click)="auth.SignOut()">
+					<i class="fa fa-sign-out"></i>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link"routerLinkActive="active"  [routerLink]="['/profile']">
+						<i class="fa fa-user"></i>
+					</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" routerLinkActive="active" [routerLink]="['/operators-list']">
+					<i class="fa fa-list"></i>
+					</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link"routerLinkActive="active"  [routerLink]="['/addTest']">
+						<i class="fa fa-address-card-o"></i>
+					</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link"routerLinkActive="active" [routerLink]="['/new-operator']">
+						<i class="fa fa-plus"></i>
+					</a>
+			</li>
+			
+		</ul>
+	</nav>
+	<div class="content-container">
+ 		<router-outlet></router-outlet>
+	</div>
+</div>

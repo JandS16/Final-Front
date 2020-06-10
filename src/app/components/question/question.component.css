@@ -1,0 +1,28 @@
+.btn.selected{
+	background-color: #CFD8DC;
+	color: white;
+}
+
+.ni-check-bold{
+	size: 20px;
+}
+
+.ni-check-bold.selected{
+	color: #3ed092;
+}
+
+h4{
+	height: 35%;
+}
+
+i{
+	cursor: pointer;
+}
+
+i.selected{
+	color: #3ed092;
+}
+
+p{
+	font-weight: 400;
+}
