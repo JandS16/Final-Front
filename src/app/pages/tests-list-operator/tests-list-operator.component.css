@@ -5,3 +5,7 @@ td, th{
 .hover{
     cursor: pointer;
 }
+
+.table-header{
+	background-color: #DEDEDE;
+}

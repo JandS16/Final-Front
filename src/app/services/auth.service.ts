@@ -65,7 +65,7 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  async SignUp(username: string, email: string, password: string, idType: string, id: number, companyName: string, userPhone: string) {
+  async SignUp(username: string, email: string, password: string, idType: string, id: number, companyName: string, phoneNumber: number) {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       await result.user.updateProfile({
@@ -88,7 +88,7 @@ export class AuthService {
         icon: 'success',
         title: 'Registrado exitosamente. Verificar correo.'
       });
-      this.SetUserData(result.user, username, companyName, idType, id, email, userPhone);
+      this.SetUserData(result.user, username, companyName, idType, id, phoneNumber);
       this.isCompanie = true;
       this.ngZone.run(() => {
         this.router.navigate(['operators-list']);
@@ -191,15 +191,14 @@ export class AuthService {
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth 
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: User, name: string, company: string, idType: string, id: number, email:string, userPhone: string) {
+  SetUserData(user: User, name: string, company: string, idType: string, id: number, phoneNumber) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`companies/${user.uid}`);
     const userData = {
       name: name,
       empresa: company,
       tipo_id: idType,
       id: id,
-      email: email,
-      phone: userPhone
+      telefono: phoneNumber
     };
     console.log(user.displayName)
     this.saveStorage(user);

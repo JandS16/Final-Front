@@ -1,51 +1,50 @@
 
 
 <div class="container-fluid mt-3"> 
-    <div class="row">
-      <div class="col">
-  
-        <div class="card shadow">
-          <div class="card-header bg-transparent d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"> 
-            <h3 class="mb-0">Encuestas disponibles</h3>
-          </div>
-          <div class="card-body">
-  
-            <div class="pricing-header mx-auto">
+  <div class="row">
+    <div class="col">
 
-              <div class="table-responsives">
-                <table class="table align-items-center table-flush table-hover">
-                  <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Título</th>
-                        <th scope="col">Tiempo estimado</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Puntuación</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="hover" [routerLink]="testsUser[test.payload.doc.id]===undefined ? ['/test', test.payload.doc.id] : ['/results', test.payload.doc.id]" *ngFor="let test of tests; let i = index">
-                        <th scope="row">{{i+1}}</th>
-                        <td>{{test.payload.doc.data().title}}</td>
-                        <td>{{test.payload.doc.data().time}}</td>
-                        <td *ngIf="testsUser[test.payload.doc.id]!==undefined">Completado</td>
-                        <td *ngIf="testsUser[test.payload.doc.id]===undefined">Sin realizar</td>
-                        <td *ngIf="testsUser[test.payload.doc.id]!==undefined">{{testsUser[test.payload.doc.id].score}}</td>
-                        <td *ngIf="testsUser[test.payload.doc.id]===undefined">Por calificar</td>
-                    </tr>
-                  </tbody>
-                  
-                </table>
-
-                <div class="no-data text-center" *ngIf="preloader">
-                    <img src="assets/preloader.gif" class="preloader-icon" alt="No test" style="width: 30px; height:auto; margin-bottom: 5px;"/>
-                  </div>
-              </div>
-            </div>            
-          </div>
+      <div class="card shadow">
+        <div class="card-header bg-transparent d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"> 
+          <h3 class="mb-0">Encuestas disponibles</h3>
         </div>
-  
+        <div class="card-body">
+
+          <div class="pricing-header mx-auto">
+
+            <div class="table-responsives">
+              <table class="table align-items-center table-flush table-hover">
+                <thead class="table-header">
+                  <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Título</th>
+                      <th scope="col">Tiempo estimado</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Puntuación</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="hover" [routerLink]="testsUser[test.payload.doc.id]===undefined ? ['/test', test.payload.doc.id] : ['/results', test.payload.doc.id]" *ngFor="let test of tests; let i = index">
+                      <th scope="row">{{i+1}}</th>
+                      <td>{{test.payload.doc.data().title}}</td>
+                      <td>{{test.payload.doc.data().time}}</td>
+                      <td *ngIf="testsUser[test.payload.doc.id]!==undefined">Completado</td>
+                      <td *ngIf="testsUser[test.payload.doc.id]===undefined">Sin realizar</td>
+                      <td *ngIf="testsUser[test.payload.doc.id]!==undefined">{{testsUser[test.payload.doc.id].score}}</td>
+                      <td *ngIf="testsUser[test.payload.doc.id]===undefined">Por calificar</td>
+                  </tr>
+                </tbody>
+                
+              </table>
+
+              <div class="no-data text-center" *ngIf="preloader">
+                  <img src="assets/preloader.gif" class="preloader-icon" alt="No test" style="width: 30px; height:auto; margin-bottom: 5px;"/>
+                </div>
+            </div>
+          </div>            
+        </div>
       </div>
+
     </div>
   </div>
-  
+</div>

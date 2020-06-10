@@ -1,30 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-
-import { CrudService } from '../../services/lista.service';
-import { Router, Params } from '@angular/router';
-import { User } from 'src/app/services/user';
-
-import { ProfileComponent } from "../../components/profile/profile.component";
+import { Router } from '@angular/router';
+import { CrudService } from 'src/app/services/lista.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-operators-list',
   templateUrl: './operators-list.component.html',
-  styleUrls: ['./operators-list.component.scss']
+  styleUrls: ['./operators-list.component.css']
 })
 export class OperatorsListComponent implements OnInit {
-  
+
   searchValue: string = "";
   user:any;
   items: Array<any>=[];
+  avatars: String[] = [];
   companie:any;
   age_filtered_items: Array<any>;
   name_filtered_items: Array<any>;
+  public preloader: boolean = true;
   
   constructor( public crudService: CrudService,
-    private router: Router) {}
+    public storageService: StorageService,
+    private router: Router) {
+      this.getData();
+    }
 
   ngOnInit(): void {
-    this.getData();
+    console.log(this.avatars[0]);
   }
   getData(){
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -32,15 +34,10 @@ export class OperatorsListComponent implements OnInit {
     this.crudService.getUsers(this.user.uid)
     .subscribe(result => {
       this.items = result;
-      console.log(this.items);
       this.age_filtered_items = result;
       this.name_filtered_items = result;
+      this.preloader = false;
     })
-   /*  this.crudService.getCompanie(this.user.uid).subscribe(result=>{
-      console.log(result.payload.data().companie);
-      this.companie= result.payload.data().companie;
-
-    }); */
     
   }
 
@@ -48,7 +45,7 @@ export class OperatorsListComponent implements OnInit {
 
   viewDetails(item){
     this.crudService.setItem(item);
-    this.router.navigate(['/details/'+ item.payload.doc.id]);
+    this.router.navigate(['edit-operator', item.payload.doc.id]);
   }
 
   capitalizeFirstLetter(value){
@@ -90,4 +87,3 @@ export class OperatorsListComponent implements OnInit {
   }
 
 }
-

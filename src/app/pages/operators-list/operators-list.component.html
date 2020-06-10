@@ -1,15 +1,23 @@
-
-  <div *ngIf="items.length==0" class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">No hay trabajadores registrados en su empresa </h1>
-      <p class="lead">Para registrarlos, dirijase a la página de agregar operador(El + en la barra de navegación izquierda)</p>
-    </div>
+<div *ngIf="items.length==0 && !preloader" class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">No hay trabajadores registrados en su empresa </h1>
+    <p class="lead">Para registrarlos, dirijase a la página de agregar operador(El + en la barra de navegación izquierda)</p>
   </div>
+</div>
 
-  <div class="card-columns">
-    
-    <div *ngFor="let item of items">
-      <div class="card animated fadeIn fast">
+
+<div class=" container text-center mt-5" *ngIf="preloader">
+  <img src="assets/preloader.gif" class="preloader-icon" alt="No test" style="width: 50px; height:auto; margin-bottom: 5px;"/>
+</div>
+
+<div class="card shadow mx-5 my-5">
+<div class="card-header bg-transparent d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"> 
+  <h3 class="mb-0">Lista de trabajadores</h3>
+</div>
+<div class="card-body">
+  <div class="card-group mt-5">
+    <div *ngFor="let item of items; index as i">
+      <div class="card animated fadeIn fast" style="width: 14rem;">
         <img [src]="item.payload.doc.data().avatar" class="card-img-top" [alt]="item.payload.doc.data().name">
         <div class="card-body">
             <h5 class="card-title">Nombre: {{item.payload.doc.data().name}}</h5>
@@ -30,8 +38,10 @@
               <button class="btn btn-outline-primary action" (click)="viewDetails(item)" type="button">
                 <i class="fa fa-arrow-right" aria-hidden="true"></i>
               </button>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     </div>
 </div>
-  
+</div>

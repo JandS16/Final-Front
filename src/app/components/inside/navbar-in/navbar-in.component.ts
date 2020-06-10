@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar-in',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarInComponent implements OnInit {
 
-  constructor() { }
+	@Output() SignOutEmitter = new EventEmitter<any>();
+
+	SignOut(){
+    this.authService.SignOut();
+    this.SignOutEmitter.emit();
+	}
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }

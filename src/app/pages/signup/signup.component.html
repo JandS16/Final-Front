@@ -3,7 +3,7 @@
     <div class="header-body text-center mb-2">
       <div class="row justify-content-center">
         <div class="col-lg-5 col-md-6">
-          <h1 class="text-info">¡Gracias por unirse!</h1>
+          <h1 class="text-info font-weight-bold">¡Gracias por unirse!</h1>
           <p>Le invitamos a evaluar a sus trabajadores.</p>
         </div>
       </div>
@@ -14,9 +14,10 @@
     <!-- Table -->
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-8">
-          <div class="card-body bg-secondary px-lg-5 py-lg-5">
+        <div class="card">
+          <div class="card-body px-lg-5 py-lg-5">
             <div class="text-center text-light mb-4">
-              <p>Registrate con tus credenciales</p>
+              <p  style="font-size: medium;">Registrate con tus credenciales</p>
             </div>
             <form role="form">
               <div class="form-inline mb-3 justify-content-center">
@@ -45,6 +46,14 @@
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
+                  </div>
+                  <input class="form-control" placeholder="Télefono" type="number" autocomplete="phoneNumber" #phoneNumber required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fa fa-users"></i></span>
                   </div>
                   <input class="form-control" placeholder="Nombre de la empresa" type="text" autocomplete="name" #companyName required>
@@ -56,14 +65,6 @@
                     <span class="input-group-text"><i class="fa fa-at"></i></span>
                   </div>
                   <input class="form-control" placeholder="Correo" type="email" autocomplete="email" #userEmail required>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
-                  </div>
-                  <input class="form-control" placeholder="Telefono" type="phone" autocomplete="phone" #userPhone required>
                 </div>
               </div>
               <div class="form-group">
@@ -84,18 +85,8 @@
                   <label *ngIf="file!==undefined" class="custom-file-label" for="fileChoose">{{file.name}}</label>
                 </div>
               </div>
-              <div class="row my-4">
-                <div class="col-12">
-                  <div class="custom-control custom-control-alternative custom-checkbox">
-                    <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                    <label class="custom-control-label" for="customCheckRegister">
-                      <span class="text-light">Acepto los <a>términos y condiciones</a></span>
-                    </label>
-                  </div>
-                </div>
-              </div>
               <div class="text-center">
-                <button type="button" class="btn btn-primary mt-4" (click)="createUser(userName.value, userEmail.value, userPwd.value, idType.value, id.value, companyName.value, userPhone.value)">Registrarse</button>
+                <button type="button" class="btn btn-primary mt-4" (click)="createUser(userName.value, userEmail.value, userPwd.value, idType.value, id.value, companyName.value, phoneNumber.value)">Registrarse</button>
               </div>
               <div class="col text-center">
                 <button type="button" routerLink="../login" class="btn text-light px-0">¿Ya te encuentras registrado? Ingresa</button>
@@ -103,6 +94,7 @@
             </form>
           </div>
         </div>
+      </div>
     </div>
 </div>
   

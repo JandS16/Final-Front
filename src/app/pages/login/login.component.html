@@ -1,63 +1,56 @@
 <div class="header py-7 py-lg-8">
-    <div class="container">
-      <div class="header-body text-center mb-7">
-        <div class="row justify-content-center">
-          <div class="col-lg-5 col-md-6">
-            <h1 class="text-info">¡Bienvenido!</h1>
-            <p>Le invitamos a evaluar a sus trabajadores.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-  <!-- Page content -->
-  <div class="container mt--8 pb-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-5 col-md-7">
-        <div class="card bg-secondary shadow border-0">
-          <div class="card-body px-lg-5 py-lg-5">
-            <div class="text-center text-light mb-4">
-              
-              <p>Iniciar sesión</p>
-              </div>
-            <form role="form">
-              <div class="form-group mb-3">
-                <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-at"></i></span>
-                  </div>
-                  <input class="form-control" placeholder="Correo" type="email" autocomplete="email" #userName required>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                  </div>
-                  <input class="form-control" placeholder="Contraseña" type="password" autocomplete="current-password" #userPassword required>
-                </div>
-              </div>
-              <div class="custom-control custom-control-alternative custom-checkbox">
-                <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
-                <label class="custom-control-label" for=" customCheckLogin">
-                  <span class="text-light">Recuérdame</span>
-                </label>
-              </div>
-              <div class="text-center">
-                <button type="button" class="btn btn-primary my-4" (click)="authService.SignIn(userName.value, userPassword.value)">Ingresar</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="row mt-3">
-          <div class="col-6">
-            <a href="javascript:void(0)" class="text-dark" (click)="authService.insertEmail()"><small>¿Olvidaste la contraseña?</small></a>
-          </div>
-          <div class="col-6 text-right">
-            <a href="javascript:void(0)" routerLink="/register" class="text-dark"><small>¿No tienes cuenta? Registrate</small></a>
-          </div>
+  <div class="container">
+    <div class="header-body text-center mb-7">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6">
+          <h1 class="text-info font-weight-bold">¡Bienvenido!</h1>
+          <p>Le invitamos a evaluar a sus trabajadores.</p>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      <div class="card shadow border-0">
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="text-center text-light mb-4">
+            
+            <p style="font-size: medium;">Iniciar sesión</p>
+            </div>
+          <form role="form">
+            <div class="form-group mb-3">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-at"></i></span>
+                </div>
+                <input class="form-control" placeholder="Correo" type="email" autocomplete="email" #userName required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                </div>
+                <input class="form-control" placeholder="Contraseña" type="password" autocomplete="current-password" #userPassword required>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="button" class="btn btn-primary my-4" (click)="authService.SignIn(userName.value, userPassword.value)">Ingresar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-6">
+          <a href="javascript:void(0)" class="text-dark" (click)="authService.insertEmail()"><small>¿Olvidaste la contraseña?</small></a>
+        </div>
+        <div class="col-6 text-right">
+          <a href="javascript:void(0)" routerLink="/register" class="text-dark"><small>¿No tienes cuenta? Registrate</small></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

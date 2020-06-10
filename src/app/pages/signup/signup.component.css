@@ -9,3 +9,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.card{
+	background-color: #3d3d3d;
+}

@@ -1,20 +1,24 @@
 
 <div class="Card">
-	<div class="row justify-content-center mt-3"><h1 class="font-weight-bolder">{{title}}</h1></div>
+  <div class="row justify-content-center mt-3"><h4 class="font-weight-bolder title">{{title}}</h4></div>
+  
+  <div class="no-data text-center" *ngIf="preloader">
+    <img src="assets/preloader.gif" class="preloader-icon" alt="No metrica" style="width: 60px; height:auto; margin-bottom: 5px;"/>
+  </div>
+  
+  <div class="no-data text-center" *ngIf="error">
+    <p class="nodata-msg">No se ha podido cargar la Prueba.</p>
+  </div>
+
+  <div class="mx-5" *ngIf="!error">
+    <div class="text-center">
+      <!-- <p>{{test}}</p> -->
+    </div>
+    <div>
+      <app-question *ngFor="let question of questions; index as i" [question]= question [numQuestion]=i (variable)="onLevel($event)"></app-question>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary btn-block btn-mg" [disabled]="!complete" (click)="sendTest()">Enviar</button>
+    </div>
+  </div>
 </div>
-
-<div class="no-data text-center" *ngIf="preLoader">
-  <img src="assets/preloader.gif" class="preloader-icon" alt="No metrica" style="width: 60px; height:auto; margin-bottom: 5px;"/>
-</div>
-
-<div class="no-data text-center" *ngIf="error">
-  <p class="nodata-msg">No se ha podido cargar la Prueba.</p>
-</div>
-
-<p>{{test}}</p>
-
-<div>
-  <app-question *ngFor="let question of questions; index as i" [question]= question [numQuestion]=i (variable)="onLevel($event)"></app-question>
-</div>
-
-<button [disabled]="!complete" (click)="sendTest()">Enviar</button>

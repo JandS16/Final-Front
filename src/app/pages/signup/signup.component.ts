@@ -7,9 +7,6 @@ import { StorageService } from '../../services/storage.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-
-
-
 export class SignupComponent implements OnInit {
 
   file: any;
@@ -25,8 +22,8 @@ export class SignupComponent implements OnInit {
   }
 
   //Create user using AuthService and save file if there's one.
-  createUser(username: string, email: string, password: string, idType: string, id: number, companyName: string, userPhone: string){
-    this._authService.SignUp(username, email, password, idType, id, companyName, userPhone).then(
+  createUser(username: string, email: string, password: string, idType: string, id: number, companyName: string, phoneNumber: number){
+    this._authService.SignUp(username, email, password, idType, id, companyName, phoneNumber).then(
       ()=>{
         console.log(this.file)
         if(this.file !== undefined){
@@ -35,6 +32,4 @@ export class SignupComponent implements OnInit {
       }
     )
   }
-
-
 }
